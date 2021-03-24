@@ -1,7 +1,16 @@
-<ul class="list-group">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-    <li class="list-group-item">A fourth item</li>
-    <li class="list-group-item">And a fifth one</li>
-  </ul>
+<div *ngIf="dataLoaded==false" class="d-flex align-items-center">
+  <strong>Loading...</strong>
+  <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+</div>
+<table *ngIf="dataLoaded!=false" class="table">
+  <thead>
+      <tr>
+      <th>Color Id</th>
+      <th>Color Name</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let color of colors">
+      <td>{{color.colorId}}</td>
+      <td>{{color.colorName}}</td>
+  </tr>
+</table>

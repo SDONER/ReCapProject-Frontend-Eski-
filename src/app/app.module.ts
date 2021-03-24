@@ -22,6 +22,7 @@ import { NaviComponent } from './components/navi/navi.component';
     CarimageComponent,
     RentalComponent,
     NaviComponent
+    
   ],
   imports: [
     BrowserModule,
