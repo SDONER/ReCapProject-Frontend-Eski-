@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background: url("https://i.pinimg.com/originals/16/0c/3f/160c3f10b59ae0a3b53413f9c4d5033e.gif") center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}

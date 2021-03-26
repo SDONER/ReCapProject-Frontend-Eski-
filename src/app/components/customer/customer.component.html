@@ -1,18 +1,18 @@
-<div *ngIf="dataLoaded==false" class="d-flex align-items-center">
-    <strong>Loading...</strong>
-    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
-  </div>
-  <table *ngIf="dataLoaded!=false" class="table">
-    <thead>
-        <tr>
-        <th>Id</th>
-        <th>User Id</th>
-        <th>Company Name</th>
+<div *ngIf="dataLoaded == false" class="d-flex align-items-center">
+  <strong>Loading...</strong>
+  <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+</div>
+<table *ngIf="dataLoaded != false" class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>User Id</th>
+      <th>Company Name</th>
     </tr>
-    </thead>
-    <tr *ngFor="let customer of customers">
-        <td>{{customer.Id}}</td>
-        <td>{{customer.userId}}</td>
-        <td>{{customer.companyName}}</td>
-    </tr>
-  </table>
+  </thead>
+  <tr *ngFor="let customer of customers">
+    <td>{{ customer.Id }}</td>
+    <td>{{ customer.userId }}</td>
+    <td>{{ customer.companyName }}</td>
+  </tr>
+</table>
