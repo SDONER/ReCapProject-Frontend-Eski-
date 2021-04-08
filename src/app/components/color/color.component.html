@@ -5,12 +5,15 @@
 <table *ngIf="dataLoaded!=false" class="table table-striped table-light table-hover">
   <thead>
       <tr>
-      <th>Color Id</th>
-      <th>Color Name</th>
   </tr>
   </thead>
-  <tr *ngFor="let color of colors">
-      <td>{{color.colorId}}</td>
-      <td>{{color.colorName}}</td>
-  </tr>
+  <ul class="list group">
+    <li [class]="getAllColorClass()" routerLink="/cars"> TÜM RENKLER</li>
+    <li (click)="setCurrentColor(color)" 
+    routerLink= "/cars/color/{{color.id}}"
+    *ngFor="let color of colors" 
+    [class]="getCurrentColorClass(color)">
+    {{color.colorName}}</li>
+  </ul>
+  <h5 *ngIf="currentColor">{{currentColor.colorName}} seçtiniz.</h5>
 </table>

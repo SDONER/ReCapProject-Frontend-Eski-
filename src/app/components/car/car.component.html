@@ -2,7 +2,7 @@
     <strong>Loading...</strong>
     <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
   </div>
-<table *ngIf="dataLoaded!=false" class="table table-striped table-light table-hover">
+<table *ngIf="dataLoaded!=false" class="table table-striped table-bordered bg-light table-light table-hover">
     <thead>
         <tr>
         <th>Car Id</th>
@@ -10,20 +10,21 @@
         <th>Color Name</th>
         <th>Car Name</th>
         <th>Model Year</th>
-        <th>Car Name</th>
         <th>Description</th>
         <th>Daily Price</th>
-    </tr>
+        <th>Araç Detay</th>
+        </tr>
     </thead>
-    <tr *ngFor="let car of cars">
-        
-        <td>{{car.carId}}</td>
+    <tr *ngFor="let car of cars"  >
+        <td>{{car.id}}</td>
         <td>{{car.brandName}}</td>
-        <td>{{car.colorName}}</td>
+        <td>{{car.colorId}}</td>
         <td>{{car.carName}}</td>
         <td>{{car.modelYear}}</td>
-        <td>{{car.carName}}</td>
         <td>{{car.description}}</td>
         <td>{{car.dailyPrice}}</td>
+       <button class="btn btn-warning" (click)="setCurrentCar(car)"
+        routerLink="/cars/getbycardetails/{{car.id}}" >Detay </button>
+
     </tr>
 </table>
