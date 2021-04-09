@@ -15,8 +15,9 @@ export class CarDetailComponent implements OnInit {
   carDetails: CarDetail[] = [];
   cars: Car[] = [];
   currentDetail: Car;
+  currentimagesDetail : CarDetail;
   images: CarDetail[] = [];
-  imageUrl = 'https://localhost:44381/api/';
+  imageUrl= 'https://localhost:44381';
 
   constructor(
     private carService: CarService,
@@ -59,6 +60,14 @@ export class CarDetailComponent implements OnInit {
   setCurrentDetail(car: Car) {
     this.currentDetail = car;
     console.log(car.id);
+  }
+
+  setCurrentImageClass(imagePath:string){
+    if(this.imageUrl=== this.currentimagesDetail.imagePath[0]){
+      return "carousel-item active"
+    }else{
+      return "carousel-item"
+    }
   }
 
   
