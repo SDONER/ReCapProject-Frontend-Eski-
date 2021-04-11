@@ -2,84 +2,90 @@
 
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="width: 240rem; height: 50rem;">
     <div class="col">
-      <div *ngFor="let carDetails of images"class="card shadow-sm">
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img  src="{{imageUrl}}{{carDetails.imagePath}}" style="height: 45rem; width: 78rem;"  class="d-block w-100">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-        <svg class="bd-placeholder-img card-img-top" width="25%" height="25" 
-        xmlns="http://www.w3.org/2000/svg" role="img" 
-        aria-label="Placeholder: Thumbnail"
-        preserveAspectRatio="xMidYMid slice" 
-        focusable="false">
-       </svg>
+      <div *ngFor="let carDetails of images" class="card shadow-sm">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{{imageUrl}}{{carDetails.imagePath}}" style="height: 45rem; width: 78rem;"
+                class="d-block w-100">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <svg class="bd-placeholder-img card-img-top" width="25%" height="25" xmlns="http://www.w3.org/2000/svg"
+          role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </svg>
 
         <div *ngFor="let carDetails of cars" class="card-body">
           <p class="card-text">{{carDetails.carName + " " + carDetails.description + " " + carDetails.modelYear }}</p>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Şimdi Kirala</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              <button routerLink="/rentals/getrentdetails/{{carDetails.id}}" type="button"
+                class="btn btn-sm btn-outline-secondary">Teklif Al</button>
+              <button routerLink="/cars" type="button" class="btn btn-sm btn-outline-secondary">Diğer araçlar</button>
             </div>
-            <small class="text-muted">9 mins</small>
           </div>
         </div>
       </div>
-      <div  *ngFor="let carDetails of cars" class=" mt-5 pt-3 accordion" id="accordionExample">
+      <div *ngFor="let carDetails of cars" class=" mt-5 pt-3 accordion" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
-            <button  class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
               Araç Detayları
             </button>
           </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              <strong>Araç Detayları</strong> 
+              <strong>Araç Detayları</strong>
               <li class="list-group-item"><strong>Marka: </strong>{{carDetails.brandName}}</li>
               <li class="list-group-item"><strong>Renk: </strong>{{carDetails.colorName}}</li>
               <li class="list-group-item"><strong>Fiyat/Gün: </strong>{{carDetails.dailyPrice}} ₺ </li>
               <li class="list-group-item"><strong>Model Yılı: </strong>{{carDetails.modelYear}}</li>
-               <code>Fiyatlarımıza KDV dahil değildir.</code>
+              <code>Fiyatlarımıza KDV dahil değildir.</code>
             </div>
           </div>
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-             Kiralama Detayları
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Kiralama Detayları
             </button>
           </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              <strong>Confor limitlerini zorlayan  {{carDetails.carName}} , Luxry Araç Kiralama hizmeleri ile birleşerek yolların keyfini sürmenenizi sağlıyor.</strong>
-               Luxry araç kiralama hizmetleri güvenliğinizi ve konforunuzu ön planda tutar. Araç kiralama hizmetlerimize, yol yardım ve sağlık sigortası dahildir.
-                Detaylı bilgi <code>+90 (531) 083 24 22 </code> numaralı whatsapp hattımızdan bizlere ulaşabilirsiniz. 
-                İstek ve önerilerinizi önemsiyoruz. Bu nedenle <code>luxryrentacar@luxry.com</code> adresinden dilediğiniz zaman talep ve önerilerinizi iletebilirsiniz. 
+              <strong>Confor limitlerini zorlayan {{carDetails.carName}} , Luxry Araç Kiralama hizmeleri ile birleşerek
+                yolların keyfini sürmenenizi sağlıyor.</strong>
+              Luxry araç kiralama hizmetleri güvenliğinizi ve konforunuzu ön planda tutar. Araç kiralama hizmetlerimize,
+              yol yardım ve sağlık sigortası dahildir.
+              Detaylı bilgi <code>+90 (531) 083 24 22 </code> numaralı whatsapp hattımızdan bizlere ulaşabilirsiniz.
+              İstek ve önerilerinizi önemsiyoruz. Bu nedenle <code>luxryrentacar@luxry.com</code> adresinden dilediğiniz
+              zaman talep ve önerilerinizi iletebilirsiniz.
             </div>
           </div>
         </div>
-        
-          </div>
-        </div>
+
       </div>
     </div>
-
-    
-
-    
+  </div>
+</div>

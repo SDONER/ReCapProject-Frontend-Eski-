@@ -3,19 +3,35 @@ import { Car } from 'src/app/models/car';
 import { HttpClient } from '@angular/common/http';
 import { CarService } from 'src/app/services/car.service';
 import { ActivatedRoute } from '@angular/router';
+import { BrandService } from 'src/app/services/brand.service';
+import { Brand } from 'src/app/models/brand';
+
+import { ColorService } from 'src/app/services/color.service';
+import { Color } from 'src/app/models/color';
+import { RentalService } from 'src/app/services/rental.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css'],
+  providers: [RentalService],
 })
 export class CarComponent implements OnInit {
   cars: Car[] = [];
+  brands: Brand[] = [];
+  colors:Color[]=[];
   currentCar :Car;
   dataLoaded = false;
+  filterText ="";
+  selectedBrandId: number = 0;
+  selectedColorId: number = 0;
   
-  constructor(private carService:CarService, private activatedRoute:ActivatedRoute) {}
+  constructor(private carService:CarService, private brandservice:BrandService,
+              private colorService:ColorService ,private activatedRoute:ActivatedRoute,
+              private toastrService:ToastrService             
+            ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -73,6 +89,19 @@ export class CarComponent implements OnInit {
       this.cars = response.data
       this.dataLoaded = true;
     })
+  }
+
+
+  getBrands() {
+    this.brandservice.getBrands().subscribe((response) => {
+      this.brands = response.data;
+    });
+  }
+
+  getColors() {
+    this.colorService.getColors().subscribe((response) => {
+      this.colors = response.data;
+    });
   }
   
 }

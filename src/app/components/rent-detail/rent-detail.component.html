@@ -1,0 +1,46 @@
+<div>
+
+</div>
+
+
+<form class="row g-3">
+
+  <div class="row g-4" > 
+    <div  class="d-flex justify-content-center "> 
+      <form > Başlangıç Tarihi: <input type="datetime-local" name="rentDate"></form>
+      <form> Bitiş Tarihi: <input type="datetime-local" name="returnDate"></form>
+    </div>
+  </div>
+
+
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Adınız</label>
+    <input type="email" class="form-control" id="inputEmail4">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Soyadınız</label>
+    <input class="form-control" >
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Adresiniz</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="Adres...">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">İl</label>
+    <input type="text" class="form-control" id="inputCity">
+  </div>
+  <div class="col-md-4">
+    <label for="inputCity" class="form-label">İlçe</label>
+    <input type="text" class="form-control" id="inputCity">
+  </div>
+  <div class="col-md-2">
+    <label for="inputZip" class="form-label">Posta Kodu</label>
+    <input type="text" class="form-control" id="inputZip">
+  </div>
+  
+  <div class="col-md-6" class="d-flex justify-content-left btn-lg" >
+    <button routerLink="/payment" type="button" class="btn btn-primary btn-lg btn-block">Kirala</button>
+    <!-- <button (click)="addToRent()" type="button" class="btn btn-primary btn-lg btn-block">Teklif Al</button> -->
+
+  </div>
+</form>

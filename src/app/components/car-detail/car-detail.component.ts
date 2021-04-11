@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/carDetailDto';
+import { Rental } from 'src/app/models/rental';
+import { RentalDetail } from 'src/app/models/rentalDetailDto';
 import { CarService } from 'src/app/services/car.service';
 
 
@@ -15,9 +17,16 @@ export class CarDetailComponent implements OnInit {
   carDetails: CarDetail[] = [];
   cars: Car[] = [];
   currentDetail: Car;
-  currentimagesDetail : CarDetail;
+
   images: CarDetail[] = [];
   imageUrl= 'https://localhost:44381';
+  currentimagesDetail : CarDetail;
+
+  rentDetails: RentalDetail[]=[];
+  rents :Rental[]=[];
+  currentRent : Rental;
+
+
 
   constructor(
     private carService: CarService,
@@ -29,6 +38,7 @@ export class CarDetailComponent implements OnInit {
       if (params['id']) {
         this.getCarsByCarDetail(params['id']);
         this.getCarImagesByCarId(params['id']);
+        this.setCurrentRent(params['id']);
       }
     });
   }
@@ -68,6 +78,11 @@ export class CarDetailComponent implements OnInit {
     }else{
       return "carousel-item"
     }
+  }
+
+  setCurrentRent(rent: Rental) {
+    this.currentRent = rent;
+    console.log(rent.carId);
   }
 
   

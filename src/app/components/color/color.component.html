@@ -2,16 +2,22 @@
   <strong>Loading...</strong>
   <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
 </div>
+<input class="form-control" id="filterText" type="text" [(ngModel)]="filterText"
+placeholder="Renk ara..." aria-label="readonly input example" > 
+<div *ngIf="filterText.length>2" class="alert alert-warning">  {{filterText}} aranıyor...</div>
+<p> 
+
+</p>
 <table *ngIf="dataLoaded!=false" class="table table-striped table-light table-hover">
   <thead>
-      <tr>
+  <tr>
   </tr>
   </thead>
-  <ul class="list group">
+  <ul class="list group ">
     <li [class]="getAllColorClass()" routerLink="/cars"> TÜM RENKLER</li>
-    <li (click)="setCurrentColor(color)" 
+    <li (click)="setCurrentColor(color) " 
     routerLink= "/cars/color/{{color.id}}"
-    *ngFor="let color of colors" 
+    *ngFor="let color of colors | colorSearch:filterText" 
     [class]="getCurrentColorClass(color)">
     {{color.colorName}}</li>
   </ul>
