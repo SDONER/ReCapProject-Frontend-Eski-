@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Rental } from '../models/rental';
-import { RentalDetail } from '../models/rentalDetailDto';
 import { RentDetail } from '../models/rentDetail';
 
 

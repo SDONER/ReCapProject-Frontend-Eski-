@@ -1,5 +1,5 @@
  <body class="bg-light">
-    <div class="container" >
+    <div class="container" class="col-md-12" >
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="https://marka-logo.com/wp-content/uploads/2020/09/Mastercard-Logo.png" alt="" width="72" height="72">
         <p class="lead">Ödemeleriniz 3D Security sistemi ve MasterCard altyapısı ile korunmaktadır.</p>
@@ -7,105 +7,105 @@
 
       <div class="row" >
         <div class="col-md-12 order-md-2 mb-4">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Your cart</span>
-            <span class="badge badge-secondary badge-pill">3</span>
-          </h4>
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Product name</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$12</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Second product</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$8</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Third item</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between bg-light">
-              <div class="text-success">
-                <h6 class="my-0">Promo code</h6>
-                <small>EXAMPLECODE</small>
-              </div>
-              <span class="text-success">-$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total (USD)</span>
-              <strong>$20</strong>
-            </li>
-          </ul>
+          
 
-          <form class="card p-2">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Promo code">
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-secondary">Redeem</button>
-              </div>
-            </div>
          
-           
-            <h4 class="mb-3">Payment</h4>
 
-            <div class="d-block my-3">
+          <form [formGroup]="paymentAddForm" class="card p-2">
+
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-muted">Kiralama Özeti</span>
+  
+            </h4>
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Araç bilgisi</h6>
+                </div>
+                <span class="text-muted">₺</span>
+              </li>
+              
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Fiyatı</h6>
+                </div>
+                <span class="text-muted">₺</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between bg-light">
+                <div class="input-group">
+                  <input type="text" id="bankName" formControlName="bankName" class="form-control" placeholder="İndirim Kodu"  >
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-secondary">Uygula</button>
+                  </div>
+                </div>
+                
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Toplam Tutar</span>
+                <strong>₺</strong>
+              </li>
+            </ul>
+
+            <h4 class="mb-3">Ödeme Bilgileri</h4>
+            <div class="input-group">
+              <input type="text" id="bankName" formControlName="bankName" class="form-control" placeholder="Banka  Adı"  >
+              <div class="input-group-append">
+              </div>
+            </div>        
+
+
+            <h5 class="mb-1">Kart Türü</h5>
+            <div class="d-block mb-3">
               <div class="custom-control custom-radio">
                 <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                <label class="custom-control-label" for="credit">Credit card</label>
+                <label class="custom-control-label" for="credit">Kredi Kartı</label>
               </div>
               <div class="custom-control custom-radio">
                 <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="debit">Debit card</label>
+                <label class="custom-control-label" for="debit">Debit Kart</label>
               </div>
               <div class="custom-control custom-radio">
                 <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="paypal">Paypal</label>
+                <label class="custom-control-label" for="paypal">Mobil Ödeme</label>
               </div>
             </div>
+
+            
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="cc-name">Name on card</label>
-                <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                <small class="text-muted">Full name as displayed on card</small>
+                <label for="cc-name">Ad/Soyad</label>
+                <input type="text" formControlName="customerName" class="form-control" id="customerName" placeholder="" required>
+                <small class="text-muted">Kart üzeründe bulunan isim bilgileri</small>
                 <div class="invalid-feedback">
-                  Name on card is required
+                  Geçerli bir isim bilgisi giriniz.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
-                <label for="cc-number">Credit card number</label>
-                <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                <label for="cc-number">Kart Numarası</label>
+                <input type="text" formControlName="accountNumber" class="form-control" id="cc-number" placeholder="" required>
                 <div class="invalid-feedback">
-                  Credit card number is required
+                  Geçerli bir kart numarası giriniz.
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-3 mb-3">
-                <label for="cc-expiration">Expiration</label>
-                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                <label for="cc-expiration">Son Kullanma Tarihi</label>
+                <input type="month" formControlName="validThru" class="form-control" id="cc-expiration" placeholder="" required>
                 <div class="invalid-feedback">
-                  Expiration date required
+                  Kart üzerinde yer alan son geçerlilik tarihini giriniz.
                 </div>
               </div>
               <div class="col-md-3 mb-3">
-                <label for="cc-expiration">CVV</label>
-                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                <label for="cc-expiration">CVV Kodu</label>
+                <input type="text" formControlName="cvvCode" class="form-control" id="cvv" placeholder="" required>
                 <div class="invalid-feedback">
-                  Security code required
+                  Kartın arkasnda yer alan 3 haneli güvenlik kodunu giriniz.
                 </div>
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="add()" >Ödemeyi Tamamla</button>
           </form>
         </div>
       </div>
@@ -120,3 +120,4 @@
       </footer>
     </div>
     <div>
+

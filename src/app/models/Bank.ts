@@ -3,7 +3,7 @@ export interface Bank{
     bankName:string,
     accountNumber:number,
     validThru: Date,
-    cvvCode: number,
+    cvvCode: string,
     customerId: number,
     customerName:string,
     customerLastName:String

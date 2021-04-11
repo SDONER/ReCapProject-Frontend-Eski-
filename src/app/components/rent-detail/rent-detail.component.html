@@ -1,46 +1,52 @@
-<div>
-
-</div>
-
-
-<form class="row g-3">
-
+<form [formGroup]="rentAddForm"  class="row g-3" >
   <div class="row g-4" > 
-    <div  class="d-flex justify-content-center "> 
-      <form > Başlangıç Tarihi: <input type="datetime-local" name="rentDate"></form>
-      <form> Bitiş Tarihi: <input type="datetime-local" name="returnDate"></form>
+    <div  class="d-flex justify-content-center " class="col-md-12" class="mb-">
+      <label for="rentDate" >Başlangıç Tarihi</label> 
+      <input type="datetime-local" formControlName="rentDate" class="form-control" id="rentDate" placeholder="" required>
+      <label for="returnDate" >Bitiş Tarihi</label>
+      <input type="datetime-local" formControlName="returnDate" class="form-control" id="returnDate" placeholder="Bitiş Tarihi" required>
     </div>
   </div>
 
-
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">Adınız</label>
-    <input type="email" class="form-control" id="inputEmail4">
+    <label for="companyName" class="form-label">Adınız</label>
+    <input type="text" formControlName="firstName" class="form-control" id="Ad" placeholder="Ad...">
   </div>
   <div class="col-md-6">
-    <label for="inputPassword4" class="form-label">Soyadınız</label>
-    <input class="form-control" >
+    <label for="companyName" class="form-label">Soyadınız</label>
+    <input class="form-control" formControlName="lastName" class="form-control" id="Soyad" placeholder="Soyad...">
   </div>
   <div class="col-12">
-    <label for="inputAddress" class="form-label">Adresiniz</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="Adres...">
+    <label for="inputAddress" class="form-label">e-Mail</label>
+    <input type="email" class="form-control"  formControlName="email"  id="inputAddress" placeholder="e-Mail...">
   </div>
-  <div class="col-md-6">
-    <label for="inputCity" class="form-label">İl</label>
-    <input type="text" class="form-control" id="inputCity">
+  <div class="col-3">
+    <label for="inputAddress" class="form-label">Marka</label>
+    <input type="text" class="form-control"  formControlName="brandName"  id="inputAddress" placeholder="Marka...">
   </div>
-  <div class="col-md-4">
-    <label for="inputCity" class="form-label">İlçe</label>
-    <input type="text" class="form-control" id="inputCity">
+  <div class="col-md-3">
+    <label for="carName" class="form-label">Model</label>
+    <input type="text" class="form-control" formControlName="modelYear" id="inputCity" placeholder="Model...">
   </div>
-  <div class="col-md-2">
-    <label for="inputZip" class="form-label">Posta Kodu</label>
-    <input type="text" class="form-control" id="inputZip">
+  <div class="col-md-3">
+    <label for="inputZip" class="form-label">Renk</label>
+    <input type="text" class="form-control" formControlName="colorName" id="inputZip" placeholder="Renk...">
   </div>
-  
-  <div class="col-md-6" class="d-flex justify-content-left btn-lg" >
-    <button routerLink="/payment" type="button" class="btn btn-primary btn-lg btn-block">Kirala</button>
-    <!-- <button (click)="addToRent()" type="button" class="btn btn-primary btn-lg btn-block">Teklif Al</button> -->
+  <div class="col-md-3">
+    <label for="inputCity" class="form-label">Fiyatı</label>
+    <input type="text" class="form-control" formControlName="dailyPrice" id="inputCity" placeholder="Fiyatı...">
+  </div>
 
+  <div class="col-md-6"  >
+    <button (click)="addToRent()" type="button" class="btn btn-primary btn-lg btn-block">Talep Oluştur</button>
+   </div>
+
+  <div class="col-md-6"  >
+   <button routerLink="/payment" type="button" class="btn btn-primary btn-lg btn-block">Kirala</button>
   </div>
+
+ 
+
+
+
 </form>

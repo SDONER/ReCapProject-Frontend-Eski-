@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/carDetailDto';
 import { Rental } from 'src/app/models/rental';
-import { RentalDetail } from 'src/app/models/rentalDetailDto';
 import { CarService } from 'src/app/services/car.service';
 
 
@@ -22,7 +21,7 @@ export class CarDetailComponent implements OnInit {
   imageUrl= 'https://localhost:44381';
   currentimagesDetail : CarDetail;
 
-  rentDetails: RentalDetail[]=[];
+  rentDetails: Rental[]=[];
   rents :Rental[]=[];
   currentRent : Rental;
 

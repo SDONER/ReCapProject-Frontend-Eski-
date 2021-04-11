@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder , FormGroup,FormControl,Validator, Validators} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/carDetailDto';
 import { Rental } from 'src/app/models/rental';
-import { RentalDetail } from 'src/app/models/rentalDetailDto';
 import { RentDetail } from 'src/app/models/rentDetail';
+import { CarService } from 'src/app/services/car.service';
 import { RentalService } from 'src/app/services/rental.service';
 
 @Component({
@@ -17,17 +18,20 @@ export class RentDetailComponent implements OnInit {
   rentDetails: RentDetail;
   rentDate?: Date;
   rents: Rental[] = [];
+  rentAddForm : FormGroup;
   cars: Car[] = [];
   carDetails: CarDetail[] = [];
   currentRentDetail: Rental;
-  currentimagesDetail: RentalDetail;
+  currentimagesDetail: Rental;
   images: CarDetail[] = [];
   apiUrl = 'https://localhost:44381';
 
   constructor(
     private rentService: RentalService,
+    private rentDetailService : CarService,
     private activatedRoute: ActivatedRoute,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private formBuilder:FormBuilder 
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +40,9 @@ export class RentDetailComponent implements OnInit {
         this.getRentsByRentDetail(params['carId']);
       }
     });
+
+    this.createRentAddForm();
+    console.log(this.rentAddForm)
   }
   getRentsByRentDetail(carId: number) {
     this.rentService.getRentDetails(carId).subscribe((response) => {
@@ -54,8 +61,8 @@ export class RentDetailComponent implements OnInit {
     if (this.rentDetails.returnDate == null) {
       console.log(this.rentDetails.carName);
       this.toastrService.error(
-        'Bu araç girilen tarihler arasında kiralamaya uygun değildir.Lütfen farklı bir tarih seçiniz.',
-        this.rentDetails.carName
+        'kiralamaya uygun değildir.Lütfen farklı bir tarih seçiniz.',
+        this.rentDetails.carName + " " +  this.rentDetails.rentDate + " " +  "tarihinde"
       );
     } else {
       if (this.rentDetails.rentDate == null) {
@@ -70,5 +77,30 @@ export class RentDetailComponent implements OnInit {
         );
       }
     }
+  }
+
+  createRentAddForm(){
+    this.rentAddForm = this.formBuilder.group({
+      colorName:["",Validators.required],
+      firstName:["",Validators.required],
+      lastName:["",Validators.required],
+      companyName:["",Validators.required],
+      rentDate:["",Validators.required],
+      returnDate:["",Validators.required],
+      brandId:["",Validators.required],
+      brandName:["",Validators.required],
+      carName:["",Validators.required],
+      modelYear:["",Validators.required],
+      dailyPrice:["",Validators.required],
+      imagePath:["",Validators.required],
+      email:["",Validators.required],
+      decription:["",Validators.required]
+
+    })
+  }
+
+  add(){
+    let rentModel = Object.assign({},this.rentAddForm.value) 
+    console.log(rentModel)
   }
 }

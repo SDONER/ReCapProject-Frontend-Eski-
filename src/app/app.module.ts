@@ -3,9 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClient, HttpClientModule} from '@angular/common/http'
 import {RouterModule} from '@angular/router'
 import {appRoutes} from './routes'
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-import { ReactiveFormsModule } from '@angular/forms';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +15,7 @@ import { RentalComponent } from './components/rental/rental.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { HomeComponent } from './components/home/home.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { CarSearchPipe } from './car-search.pipe';
 import { ColorSearchPipe } from './color-search.pipe';
 import { BrandSearchPipe } from './brand-search.pipe';
@@ -26,6 +24,9 @@ import { RentDetailComponent } from './components/rent-detail/rent-detail.compon
 import {ToastrModule} from 'ngx-toastr';
 import { BankComponent } from './components/bank/bank.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
 
 
 @NgModule({
@@ -45,6 +46,9 @@ import { PaymentComponent } from './components/payment/payment.component';
     RentDetailComponent,
     BankComponent,
     PaymentComponent,
+    CarAddComponent,
+    BrandAddComponent,
+    ColorAddComponent,
     
   ],
   imports: [
