@@ -18,7 +18,7 @@ const routes: Routes = [
   {path:"rentals",component:RentDetailComponent},
   {path:"rentals/getrentdetails/:carId",component:RentDetailComponent},
   {path:"payment",component:PaymentComponent},
-  {path:"colors/add",component:ColorAddComponent},
+  {path:"color/add",component:ColorAddComponent},
   {path:"brands/add",component:BrandComponent},
 
 ];

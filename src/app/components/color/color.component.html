@@ -21,7 +21,14 @@ placeholder="Renk ara..." aria-label="readonly input example" >
     [class]="getCurrentColorClass(color)">
     {{color.colorName}}</li>
   </ul>
-  <h5 *ngIf="currentColor">{{currentColor.colorName}} seçtiniz.</h5>
+
+    <h5  *ngIf="currentColor">{{currentColor.colorName}} seçtiniz.</h5>
 </table>
-<button class="btn btn-warning"  routerLink="/color/add">Detay
-</button>
+
+
+<div class="clearfix visible-md-block" >
+  <button type="button" class="btn btn-primary"  routerLink="color/add">Ekle</button>
+  <button type="button" class="btn btn-primary" routerLink="/color/update">Güncelle</button>
+</div>
+
+
