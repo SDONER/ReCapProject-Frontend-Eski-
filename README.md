@@ -8,7 +8,7 @@ C# ve Angular teknolojileri kullanılmıştır.
 
 ## Project Detail
 
-* Sisteme girişte kullanıcı login değilse araç listesi gösterilir. 
+* Sisteme girişte kullanıcı login değilse araç listesi, renk ve marka seçenekleri gösterilir. 
 * Araç listesinin yanındaki "Detay" butonu ile araç detaylarına ulaşılır.
 * Detay ekranında "Teklif Al" butonu ile teklif talep ekranına yönlendirme yapılır. 
 * Teklif detay formunda yer alan "Kirala" butonu ile ödeme sayfasına yönlendirme yapılır. 
