@@ -13,7 +13,7 @@ import { BrandService } from 'src/app/services/brand.service';
 export class BrandAddComponent implements OnInit {
   brandAddForm : FormGroup;
 
-  constructor( private colorService:BrandService, 
+  constructor( private brandService:BrandService, 
     private activatedRoute:ActivatedRoute, 
     private toastrService:ToastrService , 
     private formBuilder:FormBuilder 
@@ -27,16 +27,21 @@ export class BrandAddComponent implements OnInit {
 
   createBrandAddForm(){
     this.brandAddForm = this.formBuilder.group({
-      colorName:["",Validators.required],
+      brandName:["",Validators.required],
       carId:["",Validators.required],
 
     })
   }
 
   add(){
+    if(this.brandAddForm.valid){
     let brandModel = Object.assign({},this.brandAddForm.value) 
-    console.log(brandModel)
+    this.brandService.postBrand(brandModel).subscribe(response=>{
+      console.log(response)
+      this.toastrService.success(response.message,"Marka kaydı yapıldı.")
+    })
+    }else{
+      this.toastrService.error("Formdaki bilgiler boş olamaz!")
+    }
   }
-
-
 }

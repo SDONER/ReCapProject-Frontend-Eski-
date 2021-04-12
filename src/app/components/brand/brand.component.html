@@ -16,19 +16,24 @@ placeholder="Marka ara..." aria-label="readonly input example" >
   <ul class="list group">
   <li [class]="getAllBrandClass()" routerLink="/cars"> TÜM MARKALAR</li>
   <li (click)="setCurrentBrand(brand)" 
-  routerLink= "/cars/brand/{{brand.id}}"
-  *ngFor="let brand of brands | brandSearch:filterText"
-  [class]="getCurrentBrandClass(brand)">
-  {{brand.brandName}}</li>
+     routerLink= "/cars/brand/{{brand.id}}"
+     *ngFor="let brand of brands | brandSearch:filterText"
+     [class]="getCurrentBrandClass(brand)">
+     {{brand.brandName}}
+  </li>
   </ul>
   <h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz.</h5>
-  <button class="col-md-6" class="btn btn-warning"  routerLink="brand/add">Yeni Marka Ekle</button>
+
 </table>
 
-<div class="clearfix visible-md-block" >
-  <button type="button" class="btn btn-primary"  routerLink="/brand/add">Ekle</button>
-  <button type="button" class="btn btn-primary" routerLink="/brand/update">Güncelle</button>
+<div >
+  <div class="clearfix visible-md-block" >
+    <button type="button" class="btn btn-primary"  routerLink="brand/add">Ekle</button>
+    <button type="button" class="btn btn-primary" routerLink="brand/update">Güncelle</button>
+  </div>
 </div>
+
+
 
 
 
