@@ -44,13 +44,11 @@ export class BrandAddComponent implements OnInit {
         for (let i = 0; i <responseError.error.Errors.length; i++) {
           this.toastrService.error(responseError.error.errors[i].ErrorMessage,"Doğrulama hatası")   
           
-        }
-             
+        }     
       }
     })
     }else{
       this.toastrService.error("Formdaki bilgiler boş olamaz!")
     }
   }
-
 }
