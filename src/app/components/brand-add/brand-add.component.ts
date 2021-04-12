@@ -37,11 +37,20 @@ export class BrandAddComponent implements OnInit {
     if(this.brandAddForm.valid){
     let brandModel = Object.assign({},this.brandAddForm.value) 
     this.brandService.postBrand(brandModel).subscribe(response=>{
-      console.log(response)
-      this.toastrService.success(response.message,"Marka kaydı yapıldı.")
+        this.toastrService.success(response.message,"Marka kaydı yapıldı.")
+    },responseError=>{
+      if(responseError.error.Errors.length>1){
+        console.log(responseError.error.Errors)
+        for (let i = 0; i <responseError.error.Errors.length; i++) {
+          this.toastrService.error(responseError.error.errors[i].ErrorMessage,"Doğrulama hatası")   
+          
+        }
+             
+      }
     })
     }else{
       this.toastrService.error("Formdaki bilgiler boş olamaz!")
     }
   }
+
 }

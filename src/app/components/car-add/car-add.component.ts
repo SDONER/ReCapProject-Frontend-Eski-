@@ -46,11 +46,14 @@ export class CarAddComponent implements OnInit {
     this.carService.postBrand(carModel).subscribe(response=>{
       console.log(response)
       this.toastrService.success(response.message,"Araç kaydı yapıldı.")
+    },responseError=>{
+      console.log(responseError.error)
+      this.toastrService.error(responseError.error)
+      
     })
    }else{
      this.toastrService.error("Formdaki bilgiler boş olamaz!")
    }
- 
-    
+
   }
 }

@@ -27,6 +27,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
     CarAddComponent,
     BrandAddComponent,
     ColorAddComponent,
+    LoginComponent,
     
   ],
   imports: [
